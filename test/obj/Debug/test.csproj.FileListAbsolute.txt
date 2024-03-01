@@ -1,0 +1,21 @@
+D:\Projects\WinForms\test\test\bin\Debug\test.exe.config
+D:\Projects\WinForms\test\test\bin\Debug\test.exe
+D:\Projects\WinForms\test\test\bin\Debug\test.pdb
+D:\Projects\WinForms\test\test\obj\Debug\test.csproj.AssemblyReference.cache
+D:\Projects\WinForms\test\test\obj\Debug\test.csproj.SuggestedBindingRedirects.cache
+D:\Projects\WinForms\test\test\obj\Debug\test.Form1.resources
+D:\Projects\WinForms\test\test\obj\Debug\test.Properties.Resources.resources
+D:\Projects\WinForms\test\test\obj\Debug\test.csproj.GenerateResource.cache
+D:\Projects\WinForms\test\test\obj\Debug\test.csproj.CoreCompileInputs.cache
+D:\Projects\WinForms\test\test\obj\Debug\test.exe
+D:\Projects\WinForms\test\test\obj\Debug\test.pdb
+\\vmware-host\Shared Folders\Documents\PROJ\test\test\bin\Debug\test.exe.config
+\\vmware-host\Shared Folders\Documents\PROJ\test\test\bin\Debug\test.exe
+\\vmware-host\Shared Folders\Documents\PROJ\test\test\bin\Debug\test.pdb
+\\vmware-host\Shared Folders\Documents\PROJ\test\test\obj\Debug\test.csproj.AssemblyReference.cache
+\\vmware-host\Shared Folders\Documents\PROJ\test\test\obj\Debug\test.Form1.resources
+\\vmware-host\Shared Folders\Documents\PROJ\test\test\obj\Debug\test.Properties.Resources.resources
+\\vmware-host\Shared Folders\Documents\PROJ\test\test\obj\Debug\test.csproj.GenerateResource.cache
+\\vmware-host\Shared Folders\Documents\PROJ\test\test\obj\Debug\test.csproj.CoreCompileInputs.cache
+\\vmware-host\Shared Folders\Documents\PROJ\test\test\obj\Debug\test.exe
+\\vmware-host\Shared Folders\Documents\PROJ\test\test\obj\Debug\test.pdb
