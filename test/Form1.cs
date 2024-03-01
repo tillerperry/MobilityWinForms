@@ -70,22 +70,22 @@ namespace test
 
         private List<int> GetPrimesNumbers(int n)
         {
-            var primes = new List<int>();
+            var primesNumbers = new List<int>();
             for (var i = 2; i <= n; i++)
             {
-                var isPrime = true;
+                var isPrimeNumberValue = true;
                 for (var j = 2; j <= Math.Sqrt(i); j++)
                 {
                     if (i % j != 0) continue;
-                    isPrime = false;
+                    isPrimeNumberValue = false;
                     break;
                 }
-                if (isPrime)
+                if (isPrimeNumberValue)
                 {
-                    primes.Add(i);
+                    primesNumbers.Add(i);
                 }
             }
-            return primes;
+            return primesNumbers;
         }
 
         private void UpdateListBox(ListView listBox, List<int> primes)
@@ -97,9 +97,9 @@ namespace test
             else
             {
                 listBox.Items.Clear();
-                foreach (int prime in primes)
+                foreach (int primeNumber in primes)
                 {
-                    listBox.Items.Add($"{prime}");
+                    listBox.Items.Add($"{primeNumber}");
                 }
             }
         }
