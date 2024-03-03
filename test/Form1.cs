@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -19,30 +20,24 @@ namespace test
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-
         }
 
         private void groupBox2_Enter(object sender, EventArgs e)
         {
-
         }
 
         private void label1_Click(object sender, EventArgs e)
         {
-
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            int number;
-            if (int.TryParse(textBox1.Text, out number))
+            if (int.TryParse(textBox1.Text, out var number))
             {
-                Task.Factory.StartNew(() =>
-                {
-                    List<int> primes = GetPrimesNumbers(number);
-                    UpdateListBox(listView1, primes);
-                });
+                var primeThread = new Thread(() => GetPrimeNumbers(number, listView1));
+                primeThread.Start();
             }
+
             else
             {
                 MessageBox.Show("Invalid number");
@@ -51,74 +46,69 @@ namespace test
 
         private void groupBox1_Enter(object sender, EventArgs e)
         {
-
         }
 
         private void label4_Click(object sender, EventArgs e)
         {
-
         }
 
         private void textBox1_TextChanged_1(object sender, EventArgs e)
         {
-
         }
+
         private void textBox2_TextChanged(object sender, EventArgs e)
         {
-
         }
 
-        private List<int> GetPrimesNumbers(int n)
-        {
-            var primesNumbers = new List<int>();
-            for (var i = 2; i <= n; i++)
-            {
-                var isPrimeNumberValue = true;
-                for (var j = 2; j <= Math.Sqrt(i); j++)
-                {
-                    if (i % j != 0) continue;
-                    isPrimeNumberValue = false;
-                    break;
-                }
-                if (isPrimeNumberValue)
-                {
-                    primesNumbers.Add(i);
-                }
-            }
-            return primesNumbers;
-        }
-
-        private void UpdateListBox(ListView listBox, List<int> primes)
-        {
-            if (listBox.InvokeRequired)
-            {
-                listBox.Invoke(new Action(() => UpdateListBox(listBox, primes)));
-            }
-            else
-            {
-                listBox.Items.Clear();
-                foreach (int primeNumber in primes)
-                {
-                    listBox.Items.Add($"{primeNumber}");
-                }
-            }
-        }
 
         private void button2_Click(object sender, EventArgs e)
         {
             if (int.TryParse(textBox2.Text, out var number))
             {
-                Task.Factory.StartNew(() =>
-                {
-                    var primes = GetPrimesNumbers(number);
-                    UpdateListBox(listView2, primes);
-                });
+                var primeThread = new Thread(() => GetPrimeNumbers(number, listView2));
+                primeThread.Start();
             }
             else
             {
                 MessageBox.Show("Invalid number");
             }
+        }
 
+        private void GetPrimeNumbers(int n, ListView listBox)
+        {
+            var primes = new List<int>();
+
+            for (var i = 2; i <= n; i++)
+            {
+                if (IsPrime(i))
+                {
+                    primes.Add(i);
+                }
+            }
+
+
+            listBox.Invoke((MethodInvoker)delegate
+            {
+                listBox.Items.Clear();
+                foreach (int prime in primes)
+                {
+                    listBox.Items.Add($"{prime}");
+                }
+            });
+        }
+
+        private static bool IsPrime(int number)
+        {
+            if (number <= 1)
+                return false;
+
+            for (var i = 2; i * i <= number; i++)
+            {
+                if (number % i == 0)
+                    return false;
+            }
+
+            return true;
         }
     }
 }
